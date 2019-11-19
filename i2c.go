@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"os"
 	"syscall"
+	"time"
 )
 
 const (
@@ -60,6 +61,7 @@ func (v *I2C) write(buf []byte) (int, error) {
 // the message is implementation-dependant.
 func (v *I2C) WriteBytes(buf []byte) (int, error) {
 	//lg.Debugf("Write %d hex bytes: [%+v]", len(buf), hex.EncodeToString(buf))
+	time.Sleep(10 * time.Millisecond)
 	return v.write(buf)
 }
 
